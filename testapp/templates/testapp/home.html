@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>We are the mood managers!</h1>
-  </body>
-</html>
+{% extends "testapp/base.html" %}
+    {% block content %}
+      {% for question in questions %}
+        <h1>{{ question.question }} </h1>
+        <input id="answer1" type="checkbox">
+        <label for="answer1"> {{ question.answer1 }}</label>
+        <br>
+        <input id="answer2" type="checkbox">
+        <label for="answer2"> {{ question.answer2 }}</label>
+        <br>
+        <input id="answer3" type="checkbox">
+        <label for="answer3"> {{ question.answer3 }}</label>
+        <br>
+        <input id="answer4" type="checkbox">
+        <label for="answer4"> {{ question.answer4 }}</label>
+    {% endfor %}
+  {% endblock content %}
