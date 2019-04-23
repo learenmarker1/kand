@@ -1,6 +1,8 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
+
+
 <div class="questpage">
   </div>
   <div class="questtext">
@@ -8,16 +10,7 @@
 
 {% if error_message %} <p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<!-- <form action="{% url 'testapp:vote' question.id %}" method="post">
-{% csrf_token %}
-{% for choice in question.choice_set.all %}
-  <input type="radio" name="choice" id="choice{{ forloop.counter }}" value ="{{ choice.id }}">
-  <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-{% endfor %}
-<input type="submit" value="Skicka" />
-</form> -->
-
-<form action="{% url 'testapp:answer1' question.id %}" method="post">
+<form action="{% url 'testapp:answer2' question.id %}" method="post">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
   <input type="radio" name="choice" id="choice{{ forloop.counter }}" value ="{{ choice.id }}">
@@ -30,3 +23,11 @@
 <input type="submit" value="Gå tillbaka" />
 </form>
 </div>
+
+<!-- <h1> {{ question.question_text}}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{choice.votes|pluralize }}</li>
+{% endfor %}
+</ul> -->

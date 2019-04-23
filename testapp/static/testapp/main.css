@@ -18,8 +18,8 @@ li a{
         /* don't forget to use the prefixes you need */
         -webkit-transform: scale(5);
         -webkit-transform-origin: top left;
-        -webkit-filter: blur(1px);
-        -webkit-filter: grayscale(30%);
+        -webkit-filter: blur(3px);
+        -webkit-filter: grayscale(70%);
     }
 #voteagain{
   color: black;
@@ -31,6 +31,7 @@ li a{
   height: 100%;
   background: gainsboro url("images/AW_circle.png") center no-repeat;
   background-size:auto;
+  z-index: -3;
 }
 .questtext{
   text-align: center;
