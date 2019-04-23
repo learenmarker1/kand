@@ -54,7 +54,7 @@ def answer1(request, question_id):
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        return render(request, 'testapp/detail.html',{
+        return render(request, 'testapp/question1.html',{
         'question': question,
         'error_message': "You didn't select a choice.",
         })
