@@ -2,7 +2,11 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
 
-<h1> {{ question.question_text}}</h1>
+<h1>Alla resultat</h1>
+
+{% for question in questions %}
+
+<h2> {{ question.question_text}}</h2>
 
 <ul>
 {% for choice in question.choice_set.all %}
@@ -10,8 +14,4 @@
 {% endfor %}
 </ul>
 
-<a id="voteagain" href="{% url 'testapp:detail' question.id %}">Vote again?</a>
-<form action="{% url 'testapp:index' %}" method="get">
-{% csrf_token %}
-<input type="submit" value="Rösta igen" />
-</form>
+{% endfor %}

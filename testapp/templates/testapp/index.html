@@ -6,11 +6,20 @@
 <div class="container">
 
   <ul class="content">
-  {% for question in latest_question_list %}
+   {% for question in latest_question_list %}
     <li><a href="{% url 'testapp:detail' question.id %}">{{ question.question_text }} </a></li>
+      <form action="{% url 'testapp:detail' question.id %}" method="get">
+        {% csrf_token %}
+      <input type="submit" value="Svara" />
+      </form>
   {% endfor %}
-  </div>
+  <form action="{% url 'testapp:question1' 1 %}" method="get">
+    {% csrf_token %}
+  <input type="submit" value="Starta poll" />
+  </form>
   </ul>
+
 {% else %}
   <p> No polls are available.</p>
 {% endif %}
+</div>
