@@ -108,4 +108,5 @@ def answer3(request, question_id):
 
 def result(request):
     questions = Question.objects.all()
+    # results = Question.get_result_dict()
     return render(request, 'testapp/result.html', {'questions': questions})
