@@ -24,16 +24,10 @@
 </form>
 </div>
 
-<h1> {{ question.question_text}}</h1>
+<!-- <h1> {{ question.question_text}}</h1>
 
 <ul>
 {% for choice in question.choice_set.all %}
     <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{choice.votes|pluralize }}</li>
 {% endfor %}
-</ul>
-
-<a id="voteagain" href="{% url 'testapp:detail' question.id %}">Vote again?</a>
-<form action="{% url 'testapp:index' %}" method="get">
-{% csrf_token %}
-<input type="submit" value="Rösta igen" />
-</form>
+</ul> -->
