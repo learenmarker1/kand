@@ -10,13 +10,13 @@
 
 {% if error_message %} <p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'testapp:answer3' question.id %}" method="post">
+<form action="{% url 'testapp:answer2' question.id %}" method="post">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
   <input type="radio" name="choice" id="choice{{ forloop.counter }}" value ="{{ choice.id }}">
   <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
 {% endfor %}
-<input type="submit" value="Skicka" />
+<input type="submit" value="Nästa fråga" />
 </form>
 <form action="{% url 'testapp:index' %}" method="get">
 {% csrf_token %}
