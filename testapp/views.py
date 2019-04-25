@@ -10,8 +10,9 @@ class IndexView(generic.ListView):
     template_name = 'testapp/index.html'
     context_object_name = 'latest_question_list'
 
-    def get_queryset(self):
+    def get_queryset(self, **kwargs):
         """Return 3 random questions from the database."""
+
         return Question.objects.order_by('?')[:3]
 
 
@@ -27,6 +28,10 @@ class DetailView1(generic.DetailView):
 class DetailView2(generic.DetailView):
     model = Question
     template_name = 'testapp/question2.html'
+
+class DetailView3(generic.DetailView):
+    model = Question
+    template_name = 'testapp/question3.html'
 
 
 class ResultsView(generic.DetailView):
@@ -66,14 +71,14 @@ def answer1(request, question_id):
         next_question_id = next_question_ids[0]['id']
         return HttpResponseRedirect(reverse('testapp:question2', args=(next_question_id,)))
     else:
-        HttpResponseRedirect(reverse('testapp:result'))
+        return HttpResponseRedirect(reverse('testapp:result'))
 
 def answer2(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        return render(request, 'testapp:question2.htlm',{
+        return render(request, 'testapp/question2.htlm',{
         'question': question,
         'error_message': "You didn't select a choice.",
         })
@@ -92,7 +97,7 @@ def answer3(request, question_id):
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        return render(request, 'testapp:question3.htlm',{
+        return render(request, 'testapp/question3.html',{
         'question': question,
         'error_message': "You didn't select a choice.",
         })
@@ -108,4 +113,5 @@ def answer3(request, question_id):
 
 def result(request):
     questions = Question.objects.all()
+    # results = Question.get_result_dict()
     return render(request, 'testapp/result.html', {'questions': questions})
