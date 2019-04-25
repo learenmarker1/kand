@@ -11,7 +11,7 @@ li a{
         content: "";
         position: absolute;
         height: 20%; width: 20%;
-        background: white url("images/AW_background_blur.jpg") no-repeat;
+        background: gainsboro url("images/AW_background_blur.jpg") no-repeat;
         background-size: cover;
         z-index: -1; /* Keep the background behind the content */
 
@@ -19,6 +19,12 @@ li a{
         -webkit-transform: scale(5);
         -webkit-transform-origin: top left;
         -webkit-filter: grayscale(20%);
+    }
+
+    .container-fluid {
+      background-color: gainsboro;
+      text-align: center;
+      color: gray;
     }
 #voteagain{
   color: black;
