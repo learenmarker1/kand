@@ -53,6 +53,14 @@ def vote(request, question_id):
     return HttpResponseRedirect(reverse('testapp:results', args=(question.id,)))
 
 
+def result(request):
+    questions = Question.objects.all()
+    results = []
+    for question in questions:
+        results.append(question.get_result_dict())
+    return render(request, 'testapp/result.html', {'questions': questions, 'results' : results})
+
+
 def answer1(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
@@ -109,8 +117,3 @@ def answer3(request, question_id):
         return HttpResponseRedirect(reverse('testapp:result', args=(next_question_id,)))
     else:
         return HttpResponseRedirect(reverse('testapp:result'))
-
-def result(request):
-    questions = Question.objects.all()
-    # results = Question.get_result_dict()
-    return render(request, 'testapp/result.html', {'questions': questions})

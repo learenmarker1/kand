@@ -8,19 +8,26 @@ from django.utils import timezone
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
-    
+
     def get_result_dict(self):
         res = []
         for choice in self.choice_set.all():
             d = {}
             d['text'] = choice.choice_text
             d['num_votes'] = choice.votes
-            if not self.votes:
+            if not choice.votes:
                 d['percentage'] = 0
             else:
-                d['percentage'] = choice.votes / self.votes * 100
+                d['percentage'] = choice.votes / self.num_votes * 100
                 res.append(d)
         return res
+
+    @property
+    def num_votes(self):
+        votes_total = 0
+        for choice in self.choice_set.all():
+            votes_total += choice.votes
+        return votes_total
 
 class Meta:
     ordering = ['id']

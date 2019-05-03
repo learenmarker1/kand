@@ -24,4 +24,5 @@ urlpatterns = [
     path('<int:question_id>/answer2/', views.answer2, name='answer2'),
     path('<int:question_id>/answer3/', views.answer3, name='answer3'),
     path('result', views.result, name='result'),
+    path('accounts/', include('accounts.urls', namespace="accounts")),
 ]

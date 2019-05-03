@@ -7,33 +7,33 @@
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
 
 <div class="container-fluid">
-<div class="resultpage">
-<div class="resulttext">
-<h1>Resultat av enkät</h1>
-<h3> --- elever svarade på enkäten</h3>
+  <div class="resultpage">
+    <div class="resulttext">
+      <h1>Resultat av enkät</h1>
+      <h3> --- elever svarade på enkäten</h3>
 
-{% for question in questions %}
-<div class="row">
+      {% for question in questions %}
+      <div class="row">
 
-  <div class="col-xl-12">
-    <h2> {{ question.question_text}}</h2>
-  </div>
+        <div class="col-xl-12">
+          <h2> {{ question.question_text}} </h2>
+        </div>
 
-  {% for choice in question.choice_set.all %}
-  <div class="col-xs-4">
-      {{ choice.choice_text }} -
-  </div>
-  <div class="col-xs-8">
-    <div class="progress progress-striped active">
-      <div class="progress-bar progress-bar-striped progress-bar-animated"
-      role="progressbar" style="width: 50% ;">  {{ choice.votes }} vote{{choice.votes|pluralize }}</div>
-      <!-- "{{ choice.percentage }};" -->
+        {% for choice in question.choice_set.all %}
+        <div class="col-xs-4">
+          {{ choice.choice_text }} -
+        </div>
+        <div class="col-xs-8">
+          <div class="progress progress-striped active">
+            <div class="progress-bar progress-bar-striped progress-bar-animated"
+            role="progressbar" style="width: {{ choice.percentage }}% ;">  {{ choice.votes }} vote{{choice.votes|pluralize }}</div>
+            <!-- "{{ choice.percentage }};" {{ choice.results.percentage }} -->
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
     </div>
+    <img src="images/AW_circle2.png">
   </div>
-  {% endfor %}
-
-
-{% endfor %}
-</div>
-
 </div>
