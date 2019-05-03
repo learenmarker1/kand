@@ -2,23 +2,22 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
-
+import random
 from .models import Choice, Question
 
 
 class IndexView(generic.ListView):
     template_name = 'testapp/index.html'
     context_object_name = 'latest_question_list'
-
-    def get_queryset(self):
-        """Return the last five published questions."""
-        return Question.objects.order_by('-pub_date')[:5]
+    def get_queryset(self, **kwargs):
+        """Return 3 random questions from the database."""
+        quest_list=Question.objects.order_by('?')[:3]
+        return quest_list
 
 
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'testapp/detail.html'
-
 
 class DetailView1(generic.DetailView):
     model = Question
@@ -85,7 +84,7 @@ def answer2(request, question_id):
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
-        return render(request, 'testapp/question2.html',{
+        return render(request, 'testapp/question2.htlm',{
         'question': question,
         'error_message': "You didn't select a choice.",
         })
@@ -99,7 +98,7 @@ def answer2(request, question_id):
     else:
         return HttpResponseRedirect(reverse('testapp:result'))
 
-def answer3(request, question_id):
+def answer3(request, question_id ):
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])

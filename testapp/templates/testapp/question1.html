@@ -18,6 +18,8 @@
 {% endfor %}
 <input type="submit" value="Nästa fråga" />
 </form>
+
+
 <form action="{% url 'testapp:index' %}" method="get">
 {% csrf_token %}
 <input type="submit" value="Gå tillbaka" />
