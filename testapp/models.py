@@ -1,4 +1,5 @@
 from django.db import models
+from taggit.managers import TaggableManager
 
 import datetime
 
@@ -8,6 +9,7 @@ from django.utils import timezone
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
+    tags = TaggableManager()
     #is_active_question = models.BooleanField(default=False)
 
     def get_result_dict(self):
@@ -43,7 +45,7 @@ class Choice(models.Model):
 class Poll(models.Model):
     date_from = models.DateTimeField('date from')
     date_to = models.DateTimeField('date to')
-    questions = models.ManyToManyField(Question, editable=False)
+    questions = models.ManyToManyField(Question, editable=True)
 
     def save(self, *args, **kwargs):
         if self.id is None:

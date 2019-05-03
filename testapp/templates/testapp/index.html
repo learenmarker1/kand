@@ -2,26 +2,31 @@
 {% load bootstrap3 %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
-
+{% if request.user.is_authenticated %}
 {% if latest_question_list %}
 <div class="container">
 
   <ul class="content">
    {% for question in latest_question_list %}
-    <li><a href="{% url 'testapp:detail' question.id %}">{{ question.question_text }} </a></li>
+    <li>{{ question.question_text }} </li>
       <form action="{% url 'testapp:detail' question.id %}" method="get">
         {% csrf_token %}
       <input type="submit" value="Svara" />
       </form>
   {% endfor %}
-
+  {{latest_question_list.0.id}}
+  {% if latest_question_list %}
   <form action="{% url 'testapp:question1' latest_question_list.0.id %}" method="get">
-    {% csrf_token %}
+
   <input type="submit" value="Starta poll" />
   </form>
+  {% endif %}
   </ul>
 
 {% else %}
   <p> No polls are available.</p>
+{% endif %}
+{% else %}
+  <p> You don't have access to this page.</p>
 {% endif %}
 </div>

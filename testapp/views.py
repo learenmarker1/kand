@@ -1,18 +1,20 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 import random
-from .models import Choice, Question
+from .models import Choice, Question, Poll
 
 
 class IndexView(generic.ListView):
     template_name = 'testapp/index.html'
     context_object_name = 'latest_question_list'
+
     def get_queryset(self, **kwargs):
         """Return 3 random questions from the database."""
-        quest_list=Question.objects.order_by('?')[:3]
-        return quest_list
+        return Poll.objects.get(pk=1).questions.all()
 
 
 class DetailView(generic.DetailView):
