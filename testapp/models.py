@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from taggit.managers import TaggableManager
+
 
 import datetime
 
@@ -10,7 +10,6 @@ from django.utils import timezone
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
-    tags = TaggableManager()
     #is_active_question = models.BooleanField(default=False)
 
     def get_result_dict(self):
@@ -33,8 +32,8 @@ class Question(models.Model):
             votes_total += choice.votes
         return votes_total
 
-class Meta:
-    ordering = ['id']
+    class Meta:
+        ordering = ['id']
 
     def __str__(self):
         return self.question_text
