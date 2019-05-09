@@ -1,4 +1,8 @@
 {% load static %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
 
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
@@ -10,6 +14,7 @@
 <h3> --- elever svarade på enkäten</h3>
 
 {% for question in questions %}
+{{ question.num_votes }}
 <div class="row">
 
   <div class="col-xl-12">
