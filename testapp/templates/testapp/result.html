@@ -1,4 +1,8 @@
 {% load static %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
 
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
@@ -9,24 +13,26 @@
       <h1>Resultat av enkät</h1>
       <h3> --- elever svarade på enkäten</h3>
 
-      {% for question in questions %}
+      {% for qresult in qresults %}
       <div class="row">
 
         <div class="col-xl-12">
-          <h2> {{ question.question_text}} </h2>
+          <h2> {{ qresult.question.question_text}} </h2>
         </div>
 
-        {% for choice in question.choice_set.all %}
+        {% for choice in qresult.result %}
+
         <div class="col-xs-4">
-          {{ choice.choice_text }} -
+          {{ choice.text }} -
         </div>
         <div class="col-xs-8">
           <div class="progress progress-striped active">
             <div class="progress-bar progress-bar-striped progress-bar-animated"
-            role="progressbar" style="width: {{ choice.percentage }}% ;">  {{ choice.votes }} vote{{choice.votes|pluralize }}</div>
+            role="progressbar" style="width: {{ choice.percentage }}% ;">  {{ choice.num_votes }} vote{{choice.num_votes|pluralize }}</div>
             <!-- "{{ choice.percentage }};" {{ choice.results.percentage }} -->
           </div>
         </div>
+      
         {% endfor %}
       </div>
       {% endfor %}

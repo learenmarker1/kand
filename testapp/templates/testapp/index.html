@@ -4,7 +4,6 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
 
-{% if equest.user.is_authenticated %}
 
 {% if latest_question_list %}
 <div class="container">
@@ -27,7 +26,5 @@
 {% else %}
   <p> No polls are available.</p>
 {% endif %}
-{% else %}
-Nej du
-{% endif %}
+
 </div>

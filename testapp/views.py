@@ -54,10 +54,10 @@ def vote(request, question_id):
 
 def result(request):
     questions = Question.objects.all()
-    results = []
+    qresults = []
     for question in questions:
-        results.append(question.get_result_dict())
-    return render(request, 'testapp/result.html', {'questions': questions, 'results' : results})
+        qresults.append({'result':question.get_result_dict(),'question':question})
+    return render(request, 'testapp/result.html', {'qresults' : qresults})
 
 
 def answer1(request, question_id):

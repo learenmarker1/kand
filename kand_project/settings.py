@@ -39,12 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    'bootstrap3',
-    'accounts'
-=======
     'testapp.apps.TestappConfig',
->>>>>>> 0e47dbddb1491e80f3f8f1e5c5b26ac5bda4e535
+    'accounts',
 ]
 
 MIDDLEWARE = [
