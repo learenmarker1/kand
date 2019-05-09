@@ -1,8 +1,10 @@
 {% load static %}
 {% load bootstrap3 %}
 
+
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
-{% if request.user.is_authenticated %}
+
+
 {% if latest_question_list %}
 <div class="container">
 
@@ -26,7 +28,11 @@
 {% else %}
   <p> No polls are available.</p>
 {% endif %}
+<<<<<<< HEAD
 {% else %}
   <p> You don't have access to this page.</p>
 {% endif %}
+=======
+
+>>>>>>> 8afcc1be83e7e052837ac74d99f685d77f051a8c
 </div>

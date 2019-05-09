@@ -13,8 +13,28 @@ class Question(models.Model):
     tags = TaggableManager()
     #is_active_question = models.BooleanField(default=False)
 
-    class Meta:
-        ordering = ['id']
+    def get_result_dict(self):
+        res = []
+        for choice in self.choice_set.all():
+            d = {}
+            d['text'] = choice.choice_text
+            d['num_votes'] = choice.votes
+            if not choice.votes:
+                d['percentage'] = 0
+            else:
+                d['percentage'] = choice.votes / self.num_votes * 100
+                res.append(d)
+        return res
+
+    @property
+    def num_votes(self):
+        votes_total = 0
+        for choice in self.choice_set.all():
+            votes_total += choice.votes
+        return votes_total
+
+class Meta:
+    ordering = ['id']
 
     def __str__(self):
         return self.question_text
