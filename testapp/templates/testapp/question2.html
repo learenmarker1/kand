@@ -1,11 +1,13 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
-
-
 <div class="questpage">
   </div>
   <div class="questtext">
+{% if user.is_authenticated %}
+  <p> User: {{ user.get_username }} </p>
+  <p><a href="{% url 'accounts:logout'%}?next={{request.path}}">Logout</a></p>
+
 <h1>{{ question.question_text }}</h1>
 
 {% if error_message %} <p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -22,6 +24,9 @@
 {% csrf_token %}
 <input type="submit" value="Gå tillbaka" />
 </form>
+{% else %}
+  <li><a href="{% url 'accounts:login'%}?next={{request.path}}">Login</a></li>
+{% endif %}
 </div>
 
 <!-- <h1> {{ question.question_text}}</h1>
