@@ -1,0 +1,6 @@
+{% extends 'testapp/base.html' %}
+
+{% block content %}
+ <h3>Tack för att du rösta</h3>
+ <li><a href="{% url 'accounts:login'%}?next={{request.path}}">Vill du logga in igen?</a></li>
+{% endblock %}
