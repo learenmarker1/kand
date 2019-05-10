@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
+from django.template import loader
 import random
 from .models import Choice, Question, Poll
 
@@ -14,7 +15,7 @@ class IndexView(generic.ListView):
 
     def get_queryset(self, **kwargs):
         """Return 3 random questions from the database."""
-        return Poll.objects.get(pk=3).questions.all()
+        return Poll.objects.get(pk=1).questions.all()
 
 
 class DetailView(generic.DetailView):
@@ -74,7 +75,7 @@ def answer1(request, question_id):
     else:
         selected_choice.votes += 1
         selected_choice.save()
-    next_question_ids = Poll.objects.get(pk=3).questions.filter(id__gt=question_id).order_by('id').values('id')
+    next_question_ids = Poll.objects.get(pk=1).questions.filter(id__gt=question_id).order_by('id').values('id')
     if next_question_ids:
         next_question_id = next_question_ids[0]['id']
         return HttpResponseRedirect(reverse('testapp:question2', args=(next_question_id,)))
@@ -93,7 +94,7 @@ def answer2(request, question_id):
     else:
         selected_choice.votes += 1
         selected_choice.save()
-    next_question_ids = Poll.objects.get(pk=3).questions.filter(id__gt=question_id).order_by('id').values('id')
+    next_question_ids = Poll.objects.get(pk=1).questions.filter(id__gt=question_id).order_by('id').values('id')
     if next_question_ids:
         next_question_id = next_question_ids[0]['id']
         return HttpResponseRedirect(reverse('testapp:question3', args=(next_question_id,)))
@@ -112,9 +113,17 @@ def answer3(request, question_id ):
     else:
         selected_choice.votes += 1
         selected_choice.save()
-    next_question_ids = Poll.objects.get(pk=3).questions.filter(id__gt=question_id).order_by('id').values('id')
+    next_question_ids = Poll.objects.get(pk=1).questions.filter(id__gt=question_id).order_by('id').values('id')
     if next_question_ids:
         next_question_id = next_question_ids[0]['id']
         return HttpResponseRedirect(reverse('testapp:result', args=(next_question_id,)))
     else:
         return HttpResponseRedirect(reverse('testapp:result'))
+
+def teacherview(request):
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    template = loader.get_template('testapp/teacherview.html')
+    context = {
+        'latest_question_list': latest_question_list,
+    }
+    return HttpResponse(template.render(context, request))

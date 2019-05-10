@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'testapp.apps.TestappConfig',
     'accounts',
-    'taggit',
 ]
 
 MIDDLEWARE = [
