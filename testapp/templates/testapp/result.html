@@ -12,6 +12,9 @@
     <div class="resulttext">
       <h1>Resultat av enkät</h1>
       <h3> --- elever svarade på enkäten</h3>
+      <form class=logoutresult action="{% url 'accounts:logout'%}?next={{request.path}}">
+      <input type="submit" value="Logga ut" />
+      </form>
 
       {% for qresult in qresults %}
       <div class="row">

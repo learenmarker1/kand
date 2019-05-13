@@ -4,23 +4,23 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
 
-
-
-
 <div class="container">
+  <div class="typeofuser">
   {% if user.is_authenticated %}
     <p> User: {{ user.get_username }} </p>
-    <p><a href="{% url 'accounts:logout'%}?next={{request.path}}">Logout</a></p>
+    </div>
+    <form class=logoutstartpage action="{% url 'accounts:logout'%}?next={{request.path}}">
+    <input type="submit" value="Logga ut" />
+    </form>
+
   <ul class="content">
-
-
   {% if latest_question_list %}
   <form action="{% url 'testapp:question1' latest_question_list.0.id %}" method="get">
-
   <input type="submit" value="Starta poll" />
   </form>
   {% endif %}
   </ul>
+
 {% else %}
   <li><a href="{% url 'accounts:login'%}?next={{request.path}}">Login</a></li>
 {% endif %}
