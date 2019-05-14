@@ -13,7 +13,7 @@
 
 {% if error_message %} <p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'testapp:result' %}" method="post">
+<form action="{% url 'accounts:logout' %}" method="post">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
   <input type="radio" name="choice" id="choice{{ forloop.counter }}" value ="{{ choice.id }}">

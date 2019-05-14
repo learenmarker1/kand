@@ -6,21 +6,34 @@
 
 <div class = "container-fluid">
   <div class = "teacherview">
+    <div class="row">
+
+      <div class="col-md-6 quarter"
+        style="background: url('/images/AW_redbench.jpg'); height: 50%;">
+      </div>
+
+      <a href="{% url 'accounts:logout'%}?next={{request.path}}">
+      <div class="col-md-6 quarter"
+        style="background-color:#554090; height: 50%;"> Log out
+      </div>
+      </a>
+
+   </div>
 
     <div class="row">
-  <div class="col-md-6 quarter"
-  style="background: url('/images/AW_redbench.jpg'); height: 50%;"> </div>
 
-    <div class="col-md-6 quarter" 
-     style="background-color:#554090; height: 50%;"> Log out </div>
-</div>
-<div class="row">
+      <a href="{% url 'testapp:result' %}">
+        <div class="col-md-6 quarter"
+        style="background-color:C14A8F; height: 50%;"> Föreslå ny fråga
+        </div>
+      </a>
 
+  <a href="{% url 'testapp:result' %}">
     <div class="col-md-6 quarter"
-     style="background-color:C14A8F; height: 50%;"> Föreslå ny fråga </div>
+     style="background: url('/images/AW_greenbench.jpg'); height: 50%;"> Statistik
+   </div>
+   </a>
+  </div>
 
-    <div class="col-md-6 quarter"
-     style="background: url('/images/AW_greenbench.jpg'); height: 50%;"> Statistik </div>
-</div>
   </div>
 </div>

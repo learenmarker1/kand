@@ -118,3 +118,14 @@ html,body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
   Helvetica, Arial, "Lucida Grande", sans-serif;
 }
+
+div.box:hover {
+    cursor: hand;
+    cursor: pointer;
+    opacity: .9;
+}
+
+.nyfraga{
+  text-align: center;
+  position: fixed;
+}
