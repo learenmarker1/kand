@@ -95,6 +95,23 @@ li a{
 .content{
   text-align: center;
 }
+
+
+ .questpage{
+  position: absolute;
+  top: 100px; bottom: 10px; left: 10px; right: 10px;
+  height: 100%;
+  background: gainsboro url("images/AW_circle.png") center no-repeat;
+  background-size: auto;
+  z-index: -1;
+}
+.questtext{
+  text-align: center;
+  color: gray;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  background-color: gainsboro;
+}
 .resultpage{
   background: gainsboro;
   background-size: 70%;
@@ -136,4 +153,42 @@ html,body {
 }
 .col-md-6{
   height:50%;
+}
+
+.logoutstartpage{
+  text-align: right;
+  position: fixed;
+  left: 0;
+}
+
+.logoutquestions{
+  text-align: right;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.logoutresult{
+  text-align: right;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.typeofuser{
+  text-align: center;
+  color: black;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+div.box:hover {
+    cursor: hand;
+    cursor: pointer;
+    opacity: .9;
+}
+
+.nyfraga{
+  text-align: center;
+  position: fixed;
 }

@@ -6,31 +6,35 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
 <div class="questpage">
-</div>
-<div class="questtext">
-  {% if user.is_authenticated %}
-    <p> User: {{ user.get_username }} </p>
-    <p><a href="{% url 'accounts:logout'%}?next={{request.path}}">Logout</a></p>
-
-    <h1>{{ question.question_text }}</h1>
-
-    {% if error_message %} <p><strong>{{ error_message }}</strong></p>{% endif %}
-
-    <form action="{% url 'testapp:answer1' question.id %}" method="post">
-      {% csrf_token %}
-      {% for choice in question.choice_set.all %}
-      <input type="radio" name="choice" id="choice{{ forloop.counter }}" value ="{{ choice.id }}">
-      <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-      {% endfor %}
-      <input type="submit" value="Nästa fråga" />
-    </form>
+  </div>
+  <div class="questtext">
+{% if user.is_authenticated %}
+  <p> User: {{ user.get_username }} </p>
 
 
-    <form action="{% url 'testapp:index' %}" method="get">
-      {% csrf_token %}
-  <input type="submit" value="Gå tillbaka" />
+  <form class=logoutquestions action="{% url 'accounts:logout'%}?next={{request.path}}">
+  <input type="submit" value="Logga ut" />
   </form>
-  {% else %}
+
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %} <p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'testapp:answer1' question.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+  <input type="radio" name="choice" id="choice{{ forloop.counter }}" value ="{{ choice.id }}">
+  <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+{% endfor %}
+<input type="submit" value="Nästa fråga" />
+</form>
+
+
+<form action="{% url 'testapp:index' %}" method="get">
+{% csrf_token %}
+<input type="submit" value="Gå tillbaka" />
+</form>
+{% else %}
   <li><a href="{% url 'accounts:login'%}?next={{request.path}}">Login</a></li>
     {% endif %}
 </div>
