@@ -1,6 +1,19 @@
 {% extends 'testapp/base.html' %}
 
 {% block content %}
- <h3>Tack för att du rösta</h3>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<div class="questpage">
+  </div>
+<div class="questtext">
+  <h1 style="padding: '100px';"> Tack för din medverkan! </h1>
+
+  </div>
+
  <li><a href="{% url 'accounts:login'%}?next={{request.path}}">Vill du logga in igen?</a></li>
+
+
 {% endblock %}

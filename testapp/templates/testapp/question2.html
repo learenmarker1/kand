@@ -1,5 +1,10 @@
 {% load static %}
 
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
 <div class="questpage">
   </div>
@@ -28,11 +33,4 @@
   <li><a href="{% url 'accounts:login'%}?next={{request.path}}">Login</a></li>
 {% endif %}
 </div>
-
-<!-- <h1> {{ question.question_text}}</h1>
-
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{choice.votes|pluralize }}</li>
-{% endfor %}
-</ul> -->
+  </head>
