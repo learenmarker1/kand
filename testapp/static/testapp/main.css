@@ -1,7 +1,80 @@
 li a{
-  color: black;
+  color: gray;
+}
+@viewport {
+  width: device-width ;
+  zoom: 1.0 ;
+}
+@-ms-viewport {
+  width: device-width ;
+}
+@media screen and (max-width: 414px) {
+  /* comes into effect for screens less than or equal to 414 pixels, small mobile devices */
+    .questpage{
+     width: 100%;
+     position: absolute;
+     height: 100%;
+     background: gainsboro url("images/AW_circle.png") bottom left no-repeat;
+     background-size: 240px;
+     z-index: -1;
+   }
+   .questtext{
+     margin: auto;
+     width: 100%;
+     font-size: 18;
+     text-align: center;
+     color: gray;
+     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+     Helvetica, Arial, "Lucida Grande", sans-serif;
+     background-color: gainsboro;
+   }
+}
+@media screen and (min-width: 415px) and (max-width: 667px) {
+  /* comes into effect for screens between 415 and 667 pixels (inclusive), medium size mobile devices */
+  .questpage{
+   width: 100%;
+   position: absolute;
+   height: 100%;
+   background: gainsboro url("images/AW_circle.png") bottom left no-repeat;
+   background-size: 300px;
+   z-index: -1;
+ }
+ .questtext{
+   margin: auto;
+   width: 100%;
+   font-size: 18;
+   text-align: center;
+   color: gray;
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+   Helvetica, Arial, "Lucida Grande", sans-serif;
+   background-color: gainsboro;
+ }
+}
+@media screen and (min-width: 668px) {
+  /* comes into effect for screens larger than or equal to 668 pixels, i.e. iPads and full screen desktops */
+  .questpage{
+   width: 100%;
+   position: absolute;
+   height: 100%;
+   background: gainsboro url("images/AW_circle.png") bottom left  no-repeat;
+   background-size: 400px;
+   z-index: -1;
+  }
+  .questtext{
+    margin:auto;
+    width: 50%;
+    position: static;
+    font-size: 18;
+    text-align: center;
+    color: gray;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+    background-color: gainsboro;
+  }
 }
 .container {
+  margin:auto;
+        width:100%;
         position: absolute;
         top: 0; bottom: 0; left: 0; right: 0;
         height: 100%;
@@ -20,6 +93,7 @@ li a{
         -webkit-filter: grayscale(30%);
     }
     .container-fluid {
+      height: 100%;
       background-color: gainsboro;
       text-align: center;
       color: gray;
@@ -29,30 +103,16 @@ li a{
 }
 
 .content{
+  margin-top: 15%;
   text-align: center;
-}
-
- .questpage{
-  position: absolute;
-  top: 100px; bottom: 10px; left: 10px; right: 10px;
-  height: 100%;
-  background: gainsboro url("images/AW_circle.png") center no-repeat;
-  background-size: auto;
-  z-index: -1;
-}
-.questtext{
-  text-align: center;
-  color: gray;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
   Helvetica, Arial, "Lucida Grande", sans-serif;
-  background-color: gainsboro;
 }
 .resultpage{
   background: gainsboro;
   background-size: 70%;
   min-width: 330px;
   -webkit-transform-origin: top left;
-
 }
 .resulttext{
   color: gray;
@@ -89,4 +149,50 @@ html,body {
 }
 .col-md-6{
   height:50%;
+}
+
+.logoutstartpage{
+  text-align: right;
+  position: fixed;
+  left: 0;
+}
+
+.logoutquestions{
+  text-align: right;
+  position: fixed;
+  left: 5%;
+  bottom: 0;
+}
+
+.logoutresult{
+  text-align: right;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.typeofuser{
+  text-align: center;
+  color: black;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+div.box:hover {
+    cursor: hand;
+    cursor: pointer;
+    opacity: .9;
+}
+.login{
+  margin-top: 30%;
+}
+.choicelist{
+  margin:auto;
+  text-align: left;
+  width:50%;
+}
+
+.nyfraga{
+  text-align: center;
+  position: fixed;
 }

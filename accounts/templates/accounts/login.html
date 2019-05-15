@@ -1,8 +1,16 @@
 {% extends 'testapp/base.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
 
 {% block content %}
 
-<div class="container">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-6 offset-md-3">
       {% if messages %}
@@ -13,24 +21,25 @@
         </ul>
       {% endif %}
 
+      <div class="login">
       <form action="" method="post">
         {% csrf_token %}
         <div class="form-group">
           <label for="username">Användarnamn</label>
           <input type="text" class="form-control" name="username" placeholder="Användarnamn">
-          <small id="anonymousHelp" class="form-text text-muted">Du är helt anonym när du svarar på enkäten.</small>
         </div>
         <div class="form-group">
           <label for="Password">Lösenord</label>
           <input type="password" class="form-control" name="password" placeholder="Lösenord">
         </div>
-        <button type="submit" class="btn btn-primary">Logga in</button>
+        <button type="submit" class="btn btn-success">Logga in</button>
       </form>
+    </div>
     </div>
 
   </div>
 
 </div>
-
+</head>
 
 {% endblock %}
