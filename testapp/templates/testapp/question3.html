@@ -13,7 +13,8 @@
   </div>
   <div class="questtext">
 {% if user.is_authenticated %}
-  <p> User: {{ user.get_username }} </p>
+  <p> Anna Whitlocks gymnasium </p>
+
   <form class=logoutquestions action="{% url 'accounts:logout'%}?next={{request.path}}">
   <input type="submit" class="btn btn-warning" value="Logga ut" />
   </form>

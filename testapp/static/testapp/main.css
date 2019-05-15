@@ -190,7 +190,19 @@ div.box:hover {
 .choicelist{
   margin:auto;
   text-align: left;
-  width:50%;
+  width:40%;
+}
+.denied{
+  margin:auto;
+  width:100%;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  height: 100%;
+  text-align: center;
+  color: gray;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  background-color: gainsboro;
 }
 
 .nyfraga{

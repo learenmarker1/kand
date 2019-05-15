@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
 
+{% if user.is_staff %}
 <div class="container-fluid">
   <div class="resultpage no-gutters">
     <div class="resulttext no-gutters">
@@ -42,4 +43,14 @@
       {% endfor %}
     </div>
   </div>
+</div>
+{% else %}
+<div class="denied">
+  <br>
+  <br>
+  <br>
+<h1> Åtkomst nekad
+  </h1>
+  <h3> Din typ av användare har ej tillgång till denna sida. <h3>
+{% endif %}
 </div>
