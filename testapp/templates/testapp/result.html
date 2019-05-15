@@ -8,11 +8,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
 
 <div class="container-fluid">
-  <div class="resultpage">
-    <div class="resulttext">
+  <div class="resultpage no-gutters">
+    <div class="resulttext no-gutters">
       <h1>Resultat av enkät</h1>
       <form class=logoutresult action="{% url 'accounts:logout'%}?next={{request.path}}">
-      <input type="submit" value="Logga ut" />
+      <input type="submit" class="btn btn-warning"  value="Logga ut" />
       </form>
 
       {% for qresult in qresults %}
@@ -39,6 +39,5 @@
       </div>
       {% endfor %}
     </div>
-    <img src="images/AW_circle2.png">
   </div>
 </div>

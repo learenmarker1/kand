@@ -1,4 +1,4 @@
-li a{
+a{
   color: gray;
 }
 @viewport {
@@ -167,8 +167,9 @@ html,body {
 .logoutresult{
   text-align: right;
   position: fixed;
-  right: 0;
+  right: 1%;
   bottom: 0;
+  z-index: 1;
 }
 
 .typeofuser{

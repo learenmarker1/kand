@@ -8,12 +8,21 @@
 
 <div class="questpage">
   </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
 <div class="questtext">
   <h1 style="padding: '100px';"> Tack för din medverkan! </h1>
-
   </div>
 
- <li><a href="{% url 'accounts:login'%}?next={{request.path}}">Vill du logga in igen?</a></li>
+  <br>
+  <br>
+
+ <a href="{% url 'accounts:login'%}?next={{request.path}}" class="btn btn-success">Vill du logga in igen?</a>
+
 
 
 {% endblock %}

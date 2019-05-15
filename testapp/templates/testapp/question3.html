@@ -6,6 +6,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
 <div class="questpage">
@@ -27,12 +28,18 @@
   <input type="radio" name="choice" id="choice{{ forloop.counter }}" value ="{{ choice.id }}">
   <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
 {% endfor %}
+<br>
 <input type="submit" class="btn btn-success" value="Skicka" />
-</form>
 
+</form>
+<div style="font-size:12;"> När du skickar in dina svar loggas du automatiskt ut från ditt konto.</div>
 
 {% else %}
-  <li><a href="{% url 'accounts:login'%}?next={{request.path}}">Login</a></li>
-{% endif %}
+
+<br>
+<br>
+<h1> För att få tillgång till denna sida måste du vara inloggad! </h1>
+
+  <a href="{% url 'accounts:login'%}?next={{request.path}}" class="btn btn-success"> Logga in </a>
+    {% endif %}
 </div>
-</head>

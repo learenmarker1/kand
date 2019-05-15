@@ -7,7 +7,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  </head>
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
 <div class="questpage">
@@ -34,7 +34,11 @@
 </div>
 
 {% else %}
-  <li><a href="{% url 'accounts:login'%}?next={{request.path}}">Login</a></li>
-{% endif %}
+
+<br>
+<br>
+<h1> För att få tillgång till denna sida måste du vara inloggad! </h1>
+
+  <a href="{% url 'accounts:login'%}?next={{request.path}}" class="btn btn-success"> Logga in </a>
+    {% endif %}
 </div>
-  </head>
