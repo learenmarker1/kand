@@ -4,6 +4,7 @@
 {% bootstrap_javascript %}
 {% bootstrap_messages %}
 
+{% if user.is_staff %}
 <div class = "container-fluid">
   <div class = "teacherview">
 
@@ -11,8 +12,8 @@
   <div class="col-md-6 quarter"
   style="background: url('/images/AW_redbench.jpg'); height: 50%;"> </div>
 
-    <div class="col-md-6 quarter" 
-     style="background-color:#554090; height: 50%;"> Log out </div>
+    <div class="col-md-6 quarter"
+     style="background-color:#554090; height: 50%;"> <p><a href="{% url 'accounts:logout'%}?next={{request.path}}">Logout</a></p> </div>
 </div>
 <div class="row">
 
@@ -22,5 +23,8 @@
     <div class="col-md-6 quarter"
      style="background: url('/images/AW_greenbench.jpg'); height: 50%;"> Statistik </div>
 </div>
-  </div>
 </div>
+</div>
+  {% else %}
+  <li><a href="{% url 'accounts:login'%}?next={{request.path}}">Login</a></li>
+{% endif %}

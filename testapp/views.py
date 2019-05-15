@@ -4,8 +4,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 from django.template import loader
+from django.utils import timezone
 import random
-from .models import Choice, Question, Poll
+from .forms import PostForm
+from .models import Choice, Question, Poll, Post
 
 
 class IndexView(generic.ListView):
@@ -126,3 +128,20 @@ def teacherview(request):
         'latest_question_list': latest_question_list,
     }
     return HttpResponse(template.render(context, request))
+
+def post_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('testapp:post_detail', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(request, 'testapp/post_edit.html', {'form': form})
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'testapp/post_detail.html', {'post': post})
