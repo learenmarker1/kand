@@ -36,6 +36,10 @@
 
 {% else %}
 
-  <li><a href="{% url 'accounts:login'%}?next={{request.path}}">Login</a></li>
+<br>
+<br>
+<h1> För att få tillgång till denna sida måste du vara inloggad! </h1>
+
+  <a href="{% url 'accounts:login'%}?next={{request.path}}" class="btn btn-success"> Logga in </a>
     {% endif %}
 </div>
