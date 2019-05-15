@@ -13,7 +13,8 @@
   </div>
   <div class="questtext">
 {% if user.is_authenticated %}
-  <p> User: {{ user.get_username }} </p>
+  <p> Anna Whitlocks gymnasium </p>
+
   <form class=logoutquestions action="{% url 'accounts:logout'%}?next={{request.path}}">
   <input type="submit" class="btn btn-warning" value="Logga ut" />
   </form>
@@ -21,7 +22,7 @@
 
 {% if error_message %} <p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'accounts:logout' %}" method="post">
+<form action="{% url 'testapp:answer3' question.id %}" method="post">
 {% csrf_token %}
 <div class="choicelist">
 {% for choice in question.choice_set.all %}

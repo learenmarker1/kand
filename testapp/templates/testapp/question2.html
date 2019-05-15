@@ -14,7 +14,8 @@
   </div>
   <div class="questtext">
 {% if user.is_authenticated %}
-  <p> User: {{ user.get_username }} </p>
+  <p> Anna Whitlocks gymnasium </p>
+
   <form class=logoutquestions action="{% url 'accounts:logout'%}?next={{request.path}}">
   <input type="submit" class="btn btn-warning" value="Logga ut" />
   </form>
@@ -29,6 +30,7 @@
   <input type="radio" name="choice" id="choice{{ forloop.counter }}" value ="{{ choice.id }}">
   <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
 {% endfor %}
+<br>
 <input type="submit" class="btn btn-success" value="Nästa fråga" />
 </form>
 </div>

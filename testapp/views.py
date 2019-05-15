@@ -117,9 +117,9 @@ def answer3(request, question_id ):
     next_question_ids = Poll.objects.latest('pk').questions.filter(id__gt=question_id).order_by('id').values('id')
     if next_question_ids:
         next_question_id = next_question_ids[0]['id']
-        return HttpResponseRedirect(reverse('testapp:result', args=(next_question_id,)))
+        return HttpResponseRedirect(reverse('accounts:login', args=(next_question_id,)))
     else:
-        return HttpResponseRedirect(reverse('testapp:result'))
+        return HttpResponseRedirect(reverse('accounts:login'))
 
 def teacherview(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]

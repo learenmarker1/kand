@@ -12,13 +12,13 @@
 <div class="container">
   <div class="typeofuser">
   {% if user.is_authenticated %}
-    <p> User: {{ user.get_username }} </p>
     </div>
 
 
   <div class="content">
     <h1> Välkommen {{ user.get_username }}!</h1>
     <h3> Starta en poll genom att trycka på knappen nedan: </h3>
+    <br>
   {% if latest_question_list %}
   <form action="{% url 'testapp:question1' latest_question_list.0.id %}" method="get">
   <input type="submit" class="btn btn-success" value="Starta poll" />
