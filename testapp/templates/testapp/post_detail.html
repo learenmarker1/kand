@@ -1,6 +1,7 @@
 {% extends 'testapp/base.html' %}
+{% load static %}
 
-{% block content %}
+{% block content%}
     <div class="post">
         {% if post.published_date %}
             <div class="date">
@@ -9,5 +10,9 @@
         {% endif %}
         <h2>{{ post.title }}</h2>
         <p>{{ post.text|linebreaksbr }}</p>
+
+        <form action="{% url 'testapp:post_list' %} "method='get'>
+          <input type="submit" class="btn btn-success" value="Tillbaka till forumet" />
+        </form>
     </div>
 {% endblock %}

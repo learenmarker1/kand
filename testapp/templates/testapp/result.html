@@ -14,7 +14,9 @@
       <form class=logoutresult action="{% url 'accounts:logout'%}?next={{request.path}}">
       <input type="submit" value="Logga ut" />
       </form>
-
+      <form action="{% url 'testapp:teacherview'%}" method='get'>
+      <input type="submit" class="btn btn-success" value="Till lärarsidan" style="position: fixed;left: 3%;top: 5%;" />
+      </form>
       {% for qresult in qresults %}
       <div class="row">
 

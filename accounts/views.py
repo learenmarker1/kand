@@ -22,4 +22,4 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return render (request, 'accounts/login.html', {})
+    return HttpResponseRedirect(reverse('accounts:login'))

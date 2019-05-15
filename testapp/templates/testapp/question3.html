@@ -20,7 +20,7 @@
 
 {% if error_message %} <p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'accounts:logout' %}" method="post">
+<form action="{% url 'testapp:answer3' question.id %}" method="post">
 {% csrf_token %}
 <div class="choicelist">
 {% for choice in question.choice_set.all %}

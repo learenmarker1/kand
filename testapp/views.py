@@ -117,9 +117,9 @@ def answer3(request, question_id ):
     next_question_ids = Poll.objects.latest('pk').questions.filter(id__gt=question_id).order_by('id').values('id')
     if next_question_ids:
         next_question_id = next_question_ids[0]['id']
-        return HttpResponseRedirect(reverse('testapp:result', args=(next_question_id,)))
+        return HttpResponseRedirect(reverse('accounts:login', args=(next_question_id,)))
     else:
-        return HttpResponseRedirect(reverse('testapp:result'))
+        return HttpResponseRedirect(reverse('accounts:login'))
 
 def teacherview(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
@@ -128,6 +128,10 @@ def teacherview(request):
         'latest_question_list': latest_question_list,
     }
     return HttpResponse(template.render(context, request))
+
+def post_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    return render(request, 'testapp/post_list.html', {'posts':posts})
 
 def post_new(request):
     if request.method == "POST":
@@ -145,3 +149,17 @@ def post_new(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'testapp/post_detail.html', {'post': post})
+
+def post_edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('testapp:post_detail', pk=post.pk)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'testapp/post_edit.html', {'form': form})
