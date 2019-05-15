@@ -4,6 +4,7 @@
 {% bootstrap_javascript %}
 {% bootstrap_messages %}
 
+{% if user.is_staff %}
 <div class = "container-fluid">
   <div class = "teacherview">
     <div class="row">
@@ -37,3 +38,7 @@
 
   </div>
 </div>
+</div>
+  {% else %}
+  <li><a href="{% url 'accounts:login'%}?next={{request.path}}">Login</a></li>
+{% endif %}
