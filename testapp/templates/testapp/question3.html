@@ -30,10 +30,14 @@
   <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
 {% endfor %}
 <br>
+
+<div style="font-size:12;"> När du skickar in dina svar loggas du automatiskt ut från ditt konto.</div>
+</div>
+
 <input type="submit" class="btn btn-success" value="Skicka" />
 
 </form>
-<div style="font-size:12;"> När du skickar in dina svar loggas du automatiskt ut från ditt konto.</div>
+
 
 {% else %}
 
