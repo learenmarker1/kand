@@ -12,6 +12,8 @@
 <div class="questpage">
   </div>
   <div class="questtext">
+
+<!-- Give permission to enter only if user is authenticated -->
 {% if user.is_authenticated %}
   <p> Anna Whitlocks gymnasium </p>
 
@@ -25,16 +27,21 @@
 <form action="{% url 'testapp:answer3' question.id %}" method="post">
 {% csrf_token %}
 <div class="choicelist">
+
+<!-- Lists all choices that belongs to the question  -->
 {% for choice in question.choice_set.all %}
   <input type="radio" name="choice" id="choice{{ forloop.counter }}" value ="{{ choice.id }}">
   <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
 {% endfor %}
 <br>
+
+<!-- Button submits answer and logs out user -->
 <input type="submit" class="btn btn-success" value="Skicka" />
 
 </form>
 <div style="font-size:12;"> När du skickar in dina svar loggas du automatiskt ut från ditt konto.</div>
 
+<!-- If permission to enter is denied -->
 {% else %}
 
 <br>

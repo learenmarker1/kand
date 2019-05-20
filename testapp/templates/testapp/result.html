@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
 
+<!-- Give permission to enter only if the user is tagged as staff -->
 {% if user.is_staff %}
 <div class="container-fluid">
   <div class="resultpage no-gutters">
@@ -18,23 +19,28 @@
       <form action="{% url 'testapp:teacherview'%}" method='get'>
       <input type="submit" class="btn btn-success" value="Till lärarsidan" style="position: fixed;left: 3%;top: 5%;" />
       </form>
+
+<!-- Loops over questions in poll and visualise the percentage of votes each choice got in a progressbar-->
       {% for qresult in qresults %}
+
+      <!-- Row 1 -->
       <div class="row">
 
+        <!-- Col 1 -->
         <div class="col-xl-12">
           <h2> {{ qresult.question.question_text}} </h2>
         </div>
 
         {% for choice in qresult.result %}
-
+        <!-- Col 2 -->
         <div class="col-xs-4">
           {{ choice.text }} -
         </div>
+        <!-- Col 3 -->
         <div class="col-xs-8">
           <div class="progress progress-striped active">
             <div class="progress-bar progress-bar-striped progress-bar-animated"
             role="progressbar" style="width: {{ choice.percentage }}% ;">  {{ choice.num_votes }} vote{{choice.num_votes|pluralize }}</div>
-            <!-- "{{ choice.percentage }};" {{ choice.results.percentage }} -->
           </div>
         </div>
 
@@ -44,6 +50,8 @@
     </div>
   </div>
 </div>
+
+<!-- If permission to enter is denied -->
 {% else %}
 <div class="denied">
   <br>
