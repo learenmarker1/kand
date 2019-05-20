@@ -35,7 +35,6 @@ class DetailView3(generic.DetailView):
     model = Question
     template_name = 'testapp/question3.html'
 
-
 class ResultsView(generic.DetailView):
     model = Question
     template_name = 'testapp/results.html'
