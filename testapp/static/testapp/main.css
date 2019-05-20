@@ -1,5 +1,6 @@
 a{
-  color: gray;
+  color: white;
+  vertical-align: middle
 }
 @viewport {
   width: device-width ;
@@ -124,13 +125,16 @@ a{
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
   Helvetica, Arial, "Lucida Grande", sans-serif;
 }
+
 .teacherview{
   text-align: center;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
   Helvetica, Arial, "Lucida Grande", sans-serif;
   size: 100pt;
   color: white;
+  font-size: 50;
 }
+
 .quarter{
   width:50%;
   height:100%;
@@ -173,7 +177,7 @@ html,body {
 .choicelist{
   margin:auto;
   text-align: left;
-  width:40%;
+  width:60%;
 }
 .logoutstartpage{
   text-align: right;

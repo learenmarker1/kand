@@ -34,12 +34,11 @@
   <input type="radio" name="choice" id="choice{{ forloop.counter }}" value ="{{ choice.id }}">
   <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
 {% endfor %}
-<br>
 
-<!-- Button submits answer and redirects to next question  -->
+</div>
 <input type="submit" class="btn btn-success" value="Nästa fråga" />
 </form>
-</div>
+
 
 <!-- If permission to enter is denied -->
 {% else %}

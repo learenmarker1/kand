@@ -57,7 +57,7 @@ class Choice(models.Model):
 class Poll(models.Model):
     date_from = models.DateTimeField('date from')
     date_to = models.DateTimeField('date to')
-    questions = models.ManyToManyField(Question, editable=True)
+    questions = models.ManyToManyField(Question, editable=False)
 
     def save(self, *args, **kwargs):
         if self.id is None:
