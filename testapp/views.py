@@ -57,7 +57,7 @@ def vote(request, question_id):
 
 
 def result(request):
-    questions = Question.objects.all()
+    questions = Poll.objects.latest('pk').questions.all()
     qresults = []
     for question in questions:
         qresults.append({'result':question.get_result_dict(),'question':question})

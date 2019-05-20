@@ -21,7 +21,7 @@
       <!-- Col2 -->
       <a href="{% url 'accounts:logout'%}?next={{request.path}}">
       <div class="col-md-6 quarter"
-        style="background-color:#554090; height: 50%;"> Log out
+        style="background-color:#554090; height: 50%; padding-top: 100;"> Log out
       </div>
       </a>
 
@@ -32,14 +32,15 @@
 
       <a href="{% url 'testapp:post_list' %}">
         <div class="col-md-6 quarter"
-        style="background-color:C14A8F; height: 50%;"> Föreslå ny fråga
+        style="background-color:C14A8F; height: 50%; padding-top: 100;"> Föreslå ny fråga
         </div>
       </a>
 
       <!-- Col 2 -->
       <a href="{% url 'testapp:result' %}">
         <div class="col-md-6 quarter"
-        style="background: url('/images/AW_greenbench.jpg'); height: 50%;"> Statistik
+        style="background: url('/images/AW_greenbench.jpg'); height: 50%; padding-top: 100;"
+      > Statistik
         </div>
       </a>
 

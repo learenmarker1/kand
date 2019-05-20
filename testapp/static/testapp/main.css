@@ -1,5 +1,6 @@
 a{
-  color: gray;
+  color: white;
+  vertical-align: middle
 }
 @viewport {
   width: device-width ;
@@ -136,6 +137,8 @@ html,body {
   Helvetica, Arial, "Lucida Grande", sans-serif;
   size: 100pt;
   color: white;
+  text-align: center;
+  font-size: 50;
 
 }
 .quarter{
