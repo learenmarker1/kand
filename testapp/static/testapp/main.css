@@ -8,6 +8,8 @@ a{
 @-ms-viewport {
   width: device-width ;
 }
+
+/* Different stylesheets for different screens, in three intervals */
 @media screen and (max-width: 414px) {
   /* comes into effect for screens less than or equal to 414 pixels, small mobile devices */
     .questpage{
@@ -72,6 +74,8 @@ a{
     background-color: gainsboro;
   }
 }
+
+/* General style for all types of screens */
 .container {
   margin:auto;
         width:100%;
@@ -101,13 +105,14 @@ a{
 #voteagain{
   color: black;
 }
-
 .content{
   margin-top: 15%;
   text-align: center;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
   Helvetica, Arial, "Lucida Grande", sans-serif;
 }
+
+/* Styles for staff views  */
 .resultpage{
   background: gainsboro;
   background-size: 70%;
@@ -119,24 +124,12 @@ a{
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
   Helvetica, Arial, "Lucida Grande", sans-serif;
 }
-table.center {
-  text-align: center;
-    margin:0px auto;
-    margin-top:25%;
-}
-html,body {
-  padding:0;
-  margin:0;
-  height:100%;
-  min-height:100%;
- }
 .teacherview{
   text-align: center;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
   Helvetica, Arial, "Lucida Grande", sans-serif;
   size: 100pt;
   color: white;
-
 }
 .quarter{
   width:50%;
@@ -150,47 +143,55 @@ html,body {
 .col-md-6{
   height:50%;
 }
+table.center {
+  text-align: center;
+  margin:0px auto;
+  margin-top:25%;
+}
+html,body {
+  padding:0;
+  margin:0;
+  height:100%;
+  min-height:100%;
+ }
+ .typeofuser{
+   text-align: center;
+   color: black;
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+   Helvetica, Arial, "Lucida Grande", sans-serif;
+ }
+ .login{
+   margin-top: 30%;
+ }
+ div.box:hover {
+     cursor: hand;
+     cursor: pointer;
+     opacity: .9;
+ }
 
+/* Styles for student views  */
+.choicelist{
+  margin:auto;
+  text-align: left;
+  width:40%;
+}
 .logoutstartpage{
   text-align: right;
   position: fixed;
   left: 0;
 }
-
 .logoutquestions{
   text-align: right;
   position: fixed;
   left: 5%;
   bottom: 0;
 }
-
 .logoutresult{
   text-align: right;
   position: fixed;
   right: 1%;
   bottom: 0;
   z-index: 1;
-}
-
-.typeofuser{
-  text-align: center;
-  color: black;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-  Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
-div.box:hover {
-    cursor: hand;
-    cursor: pointer;
-    opacity: .9;
-}
-.login{
-  margin-top: 30%;
-}
-.choicelist{
-  margin:auto;
-  text-align: left;
-  width:40%;
 }
 .denied{
   margin:auto;
@@ -204,7 +205,6 @@ div.box:hover {
   Helvetica, Arial, "Lucida Grande", sans-serif;
   background-color: gainsboro;
 }
-
 .nyfraga{
   text-align: center;
   position: fixed;
