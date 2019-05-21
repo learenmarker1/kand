@@ -7,11 +7,11 @@
 {% block content%}
 
 <div>
-  <form class=logoutstartpage action="{% url 'accounts:logout'%}?next={{request.path}}">
-  <input type="submit" class="btn btn-warning" value="Logga ut" style="position: fixed;left: 5%;bottom: 5%;" />
-  </form>
   <form action="{% url 'testapp:teacherview'%}" method='get'>
-  <input type="submit" class="btn btn-success" value="Till lärarsidan" style="position: fixed;right: 5%;bottom: 5%;" />
+  <input type="submit" class="btn btn-primary" value="Till lärarsidan" style="position: fixed;left: 5%;top: 5%;" />
+  </form>
+  <form class=logoutresult action="{% url 'accounts:logout'%}?next={{request.path}}">
+  <input type="submit" class="btn btn-warning" value="Logga ut" style="color: white; position: fixed;right: 5%;bottom: 5%;" />
   </form>
     <h1>Anna Whitlocks lärarforum</h1>
     <form action="{% url 'testapp:post_new' %} "method='get'>

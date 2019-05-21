@@ -12,7 +12,7 @@
         <p>{{ post.text|linebreaksbr }}</p>
 
         <form action="{% url 'testapp:post_list' %} "method='get'>
-          <input type="submit" class="btn btn-success" value="Tillbaka till forumet" />
+          <input type="submit" class="btn btn-primary" value="Tillbaka till forumet" />
         </form>
     </div>
 {% endblock %}

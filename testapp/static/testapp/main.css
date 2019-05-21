@@ -89,7 +89,7 @@ a{
         position: absolute;
         height: 20%; width: 20%;
         background: gainsboro url("images/AW_background.jpg") no-repeat;
-        background-size: cover;
+        background-size:cover;
         z-index: -1; /* Keep the background behind the content */
 
         /* don't forget to use the prefixes you need */
@@ -187,7 +187,7 @@ html,body {
 .logoutquestions{
   text-align: right;
   position: fixed;
-  left: 5%;
+  right: 5%;
   bottom: 0;
 }
 .logoutresult{
