@@ -70,7 +70,7 @@ def answer1(request, question_id):
     except (KeyError, Choice.DoesNotExist):
         return render(request, 'testapp/question1.html',{
         'question': question,
-        'error_message': "You didn't select a choice.",
+        'error_message': "Du måste välja ett alternativ.",
         })
     else:
         selected_choice.votes += 1
@@ -89,7 +89,7 @@ def answer2(request, question_id):
     except (KeyError, Choice.DoesNotExist):
         return render(request, 'testapp/question2.htlm',{
         'question': question,
-        'error_message': "You didn't select a choice.",
+        'error_message': "Du måste välja ett alternativ.",
         })
     else:
         selected_choice.votes += 1
@@ -108,7 +108,7 @@ def answer3(request, question_id ):
     except (KeyError, Choice.DoesNotExist):
         return render(request, 'testapp/question3.html',{
         'question': question,
-        'error_message': "You didn't select a choice.",
+        'error_message': "Du måste välja ett alternativ.",
         })
     else:
         selected_choice.votes += 1

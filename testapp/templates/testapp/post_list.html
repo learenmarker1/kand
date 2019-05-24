@@ -4,6 +4,9 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="{% static 'testapp/main.css' %}">
+
+<div class="container-fluid">
+
 {% block content%}
 
 <div>
@@ -13,18 +16,25 @@
   <form class=logoutresult action="{% url 'accounts:logout'%}?next={{request.path}}">
   <input type="submit" class="btn btn-warning" value="Logga ut" style="color: white; position: fixed;right: 5%;bottom: 5%;" />
   </form>
+    <br>
     <h1>Anna Whitlocks lärarforum</h1>
+    <br>
+    <h4>Här kan du skriva ett inlägg så att de andra lärarna kan se, eller föreslå en ny fråga du skulle vilja se inkluderas i enkäterna </h4>
+<br>
     <form action="{% url 'testapp:post_new' %} "method='get'>
-      <input type="submit" class="btn btn-success" value="Föreslå ny fråga" />
+      <input type="submit" class="btn btn-success" value="Skriv ett inlägg" />
     </form>
 
 </div>
 
 {% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }} by {{ post.author }}<p>
+    <div class="teacherpost" style="align: center;">
+      <br>
         <h2><a href="{%url 'testapp:post_detail' post.id%}">{{ post.title }}</a></h2>
         <h6>{{ post.text|linebreaksbr }}</h6>
+        <p>published: {{ post.published_date }} by {{ post.author }}<p>
     </div>
 {% endfor %}
 {% endblock %}
+
+</div>

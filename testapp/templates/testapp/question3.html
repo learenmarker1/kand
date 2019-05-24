@@ -22,7 +22,9 @@
   </form>
 <h1>{{ question.question_text }}</h1>
 
+<div style="color:red;">
 {% if error_message %} <p><strong>{{ error_message }}</strong></p>{% endif %}
+</div>
 
 <form action="{% url 'testapp:answer3' question.id %}" method="post">
 {% csrf_token %}
